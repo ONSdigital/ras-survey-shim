@@ -1,0 +1,84 @@
+consumes: [application/json]
+host: localhost:8080
+info: {title: Survey Service, version: 0.0.1}
+paths:
+  /surveys:
+    get:
+      description: return a list of known surveys
+      operationId: stub1
+      responses:
+        '200': {description: Success}
+        '204': {description: No Surveys Found}
+        default: {description: Error}
+      tags: [Survey]
+      x-swagger-router-controller: controllers.surveys
+  /surveys/name/bres:
+    get:
+      description: will return the details of the survey with the name bres
+      operationId: stub2
+      responses:
+        '200': {description: Success}
+        '404': {description: Not Found}
+        default: {description: Error}
+      tags: [Survey]
+      x-swagger-router-controller: controllers.surveys
+  /surveys/ref/{ref}:
+    get:
+      description: will return the details of the survey with the selected ref
+      operationId: stub3
+      parameters:
+      - {description: the ref of the survey you want, in: path, name: ref, required: true,
+        type: string}
+      responses:
+        '200': {description: Success}
+        '404': {description: Not Found}
+        default: {description: Error}
+      tags: [Survey]
+      x-swagger-router-controller: controllers.surveys
+  /surveys/{uuid}:
+    get:
+      description: will return the details of the survey with the selected uuid
+      operationId: stub4
+      parameters:
+      - {description: the uuid of the survey you want, in: path, name: uuid, required: true,
+        type: string}
+      responses:
+        '200': {description: Success}
+        '404': {description: Not Found}
+        default: {description: Error}
+      tags: [Survey]
+      x-swagger-router-controller: controllers.surveys
+  /surveys/{uuid}/classifiertypeselectors:
+    get:
+      description: will return a list of classifier type selectors for the survey
+        with an ID
+      operationId: stub5
+      parameters:
+      - {description: the uuid of the survey you want, in: path, name: uuid, required: true,
+        type: string}
+      responses:
+        '200': {description: Success}
+        default: {description: Error}
+      tags: [Survey]
+      x-swagger-router-controller: controllers.surveys
+  /surveys/{uuid}/classifiertypeselectors/{classifier}:
+    get:
+      description: will return the details of the classifier type selector with an
+        ID of {classifier} for the survey with an ID {uuid}
+      operationId: stub6
+      parameters:
+      - {description: the uuid of the survey you want, in: path, name: uuid, required: true,
+        type: string}
+      - {description: the uuid of the classifier you want, in: path, name: classifier,
+        required: true, type: string}
+      responses:
+        '200': {description: Success}
+        '404': {description: Not Found}
+        default: {description: Error}
+      tags: [Survey]
+      x-swagger-router-controller: controllers.surveys
+produces: [application/json]
+schemes: [http, https]
+swagger: '2.0'
+tags:
+- {description: Management of case information, name: Survey}
