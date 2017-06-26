@@ -1,1 +1,1 @@
-web: ONS_ENV=demo python3 main.py
+web: python3 main.py
