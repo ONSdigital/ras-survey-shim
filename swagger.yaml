@@ -1,5 +1,5 @@
 consumes: [application/json]
-host: localhost:8080
+host: surveysvc.apps.mvp.onsclofo.uk:443
 info: {title: Survey Service, version: 0.0.1}
 paths:
   /surveys:
